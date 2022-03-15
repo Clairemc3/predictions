@@ -67,3 +67,13 @@ More information about the usage of this directory in [the documentation](https:
 This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+
+
+
+1. Env file for app:
+
+Setting up local domain for nuxt app:
+ - add server entry to nuxt.config.js
+ - run npm run dev
+ - add whatever ip address comes up to hosts alongside the app url (e.g. app.predictions.local)
+ (not sure if will do this for live development or not?)
