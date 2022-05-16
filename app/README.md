@@ -68,12 +68,19 @@ This directory contains your Vuex store files. Creating a file in this directory
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
 
-
+Custom instructions for running the Front end 'APP' of the project
 
 1. Env file for app:
 
 Setting up local domain for nuxt app:
- - add server entry to nuxt.config.js
- - run npm run dev
- - add whatever ip address comes up to hosts alongside the app url (e.g. app.predictions.local)
- (not sure if will do this for live development or not?)
+ - add a 'server' entry to the end of the nuxt.config.js e.g.
+ ```
+   server: {
+    port: 80,
+    host: '0.0.0.0'
+  }
+ ```
+ - run npm run dev from the 'app' folder
+ - In the terminal, a ip address will be provided (e.g. Listening: http://192.168.0.107:80/). You can access the app from this ip address in your browser. 
+ - If you are running the project locally, add this ip address alongside the local domain you want to use (e.g. app.predictions.local) to your etc/hosts file.
+ (not sure if will need to add this server entry for live development or not?)
