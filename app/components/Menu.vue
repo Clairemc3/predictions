@@ -1,12 +1,13 @@
 <template>
  <div class="
           flex flex-col
-          max-w-screen-xl
-          p-5
-          mx-auto
+          py-5
+          px-4
+          mx-0
           md:items-center md:justify-between md:flex-row md:px-6
-          lg:px-8
+          lg:px-28
           bg-purple-900
+          sticky top-0 z-50
         ">
     <div class="flex flex-row items-center justify-between lg:justify-start">
         <a href="./index.html" class="

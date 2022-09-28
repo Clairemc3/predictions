@@ -15,6 +15,15 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'MyPredictions',
+        path: '/my-predictions*',
+        component: resolve(__dirname, 'pages/mypredictions.vue')
+      })
+    }
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -40,6 +49,8 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/composition-api/module'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

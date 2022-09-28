@@ -1,20 +1,11 @@
 <template>
-<div>
-  <h1>Dashboard</h1>
-  <ul>
-    <li>
-      Redirected to login page if not authenticated
-    </li>
-    <li>
-      Precictions to answer if draft available
-    </li>
-    <li>
-      List of previous predictions if no live predictions
-    </li>
-    <li>
-      Score sheet for current predictions if live predictions
-    </li>
-  </ul>
+<div class="w-full">
+  <h1 class="text-center">Dashboard</h1>
+  <BlocksGroup>
+    <Block title="Current predictions" description="View the current predictions" link="/my-predictions"></Block>
+    <Block title="Previous predictions" description="Previous years results" link="#"></Block>
+   <Block title="Your account" description="Manage your account" link="#"></Block>
+  </BlocksGroup>
   </div>
 </template>
 

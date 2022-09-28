@@ -4,8 +4,8 @@
       <a id="menu" href="#">
         <span>My profile</span>
       </a>
-      <a id="menu" href="#">
-        <span>Current Prediction ( 2022)</span>
+      <a id="menu" href="/my-predictions">
+        <span>Current Predictions (2022)</span>
       </a>
       <a id="menu" href="#">
         <span>Previous predictions</span>
