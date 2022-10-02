@@ -4,8 +4,7 @@
     <div class="text-center">
       <h1>My predictions</h1>
       <h2>2022</h2>
-      <QuestionGroup>
-      </QuestionGroup>
+        <Predictions/>
     </div>
 
   </div>

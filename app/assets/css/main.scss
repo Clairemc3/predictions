@@ -3,6 +3,7 @@ h1 {
   color: purple;
   font-size: x-large;
   font-weight: 700;
+  font-family: 'Archivo Black', sans-serif;
 }
 
 h2 {
@@ -10,6 +11,18 @@ h2 {
   color: purple;
   font-size: large;
   font-weight: 600;
+  font-family: 'Archivo Black', sans-serif;
+}
+
+h3 {
+  text-transform: uppercase;
+  font-size: large;
+  font-weight: 600;
+  font-family: 'Archivo Black', sans-serif;
+}
+
+p {
+  font-size: 20px;
 }
 
 input[type=text], input[type=password] {

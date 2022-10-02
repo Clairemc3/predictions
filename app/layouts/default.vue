@@ -1,7 +1,7 @@
 <template>
   <div class="w-full">
     <Menu/>
-     <div class="container w-full">
+     <div class="w-full">
        <Nuxt/>
      </div>
 
