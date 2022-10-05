@@ -1,8 +1,12 @@
 {
   "root": true,
-  "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "sourceType": "module"
+    "parser": "@babel/eslint-parser",
+    "sourceType": "module",
+    "requireConfigFile": false
+  },
+  "rules": {
+    "vue/multi-word-component-names": "off",
   },
   "extends": [
     "@nuxtjs"
