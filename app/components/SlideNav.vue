@@ -1,6 +1,6 @@
 <template>
   <div class="slidemenu">
-    <SlideMenu right width=300>
+    <Slide :right="true" :closeOnNavigation="true" width=300>
       <a id="menu" href="#">
         <span>My profile</span>
       </a>
@@ -10,7 +10,7 @@
       <a id="menu" href="#">
         <span>Previous predictions</span>
       </a>
-    </SlideMenu>
+    </Slide>
     </div>
 </template>
 
@@ -23,11 +23,14 @@
     background-color: white;
 }
 
+
+
 .slidemenu .bm-burger-button {
       position: fixed;
       width: 36px;
       height: 30px;
-      left: 36px;
+      right: 36px;
+      left: initial;
       top: 20px;
       cursor: pointer;
     }
@@ -41,4 +44,3 @@
     }
 
 </style>
-

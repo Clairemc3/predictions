@@ -16,7 +16,6 @@ export default {
     }
   },
   setup (props) {
-    console.log(props.title)
   }
 }
 </script>

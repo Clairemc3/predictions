@@ -2,20 +2,13 @@
   <div class="grid grid-cols-5 gap-4 mb-3 mt-3">
     <div class="col-span-4">
       <div class="bg-white text-left pl-2 pr-2 py-2">
-        <span class="font-archivo">{{ shortQuestionLabel }}</span>
+        <span class="font-archivo pr-2">{{ shortQuestionLabel }}</span>
         <span class="text-base uppercase text-sm font-carme"> {{ value }} </span>
       </div>
     </div>
     <!-- ... -->
     <div class="col-span-1">
-      <div class="flex justify-center">
-        <div
-          class="circle bg-white flex
-    justify-center items-center font-archivo"
-        >
-          0
-        </div>
-      </div>
+      <Points :number="points" />
     </div>
   </div>
   <!-- <div class="grid grid-cols-5 gap-30 px-4 py-2 align-center">
@@ -49,17 +42,8 @@ export default {
     }
   },
   setup (props) {
-    console.log(props.title)
+
   }
 }
 
 </script>
-
-<style lang="scss" scoped>
-.circle {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
-</style>

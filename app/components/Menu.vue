@@ -1,5 +1,6 @@
 <template>
- <div class="
+  <div
+    class="
           flex flex-col
           py-5
           px-4
@@ -8,9 +9,12 @@
           lg:px-28
           bg-purple-900
           sticky top-0 z-50
-        ">
+        "
+  >
     <div class="flex flex-row items-center justify-between lg:justify-start">
-        <a href="./index.html" class="
+      <a
+        href="./index.html"
+        class="
       text-lg
       font-bold
       tracking-tighter
@@ -21,14 +25,13 @@
       transform
       tracking-relaxed
       lg:pr-8
-    "> Prediction league </a>
-
+    "
+      > Prediction league </a>
     </div>
-      <nav>
-        <SlideNav/>
-      </nav>
+    <nav>
+      <SlideNav />
+    </nav>
   </div>
-
 </template>
 
 <script>

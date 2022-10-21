@@ -1,17 +1,36 @@
 <template>
-  <div
-    class="
-    font-archivo
-    rounded-full
-    bg-white
-    flex
-    items-center
-    justify-center"
-    style="height: 40px; width: 40px;"
-  >
-    0
+  <div class="flex justify-center">
+    <div
+      class="circle bg-white flex
+    justify-center items-center font-archivo"
+    >
+      {{ number }}
+    </div>
   </div>
 </template>
 
-<style scoped>
+<script>
+
+export default {
+  props: {
+    number: {
+      type: Number,
+      required: false,
+      default: 0
+    }
+  },
+  setup (props) {
+
+  }
+}
+
+</script>
+
+<style lang="scss" scoped>
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
 </style>

@@ -1,3 +1,6 @@
-import Vue from 'vue';
-import { Slide } from 'vue-burger-menu'
-Vue.component('SlideMenu', Slide)
+// import Vue from 'vue';
+import { Slide } from 'vue3-burger-menu'
+
+export default defineNuxtPlugin((nuxtApp) => {
+     nuxtApp.vueApp.component('Slide', Slide);
+  })

@@ -2,13 +2,8 @@
   <div class="w-full">
     <Menu/>
      <div class="w-full">
-       <Nuxt/>
+       <slot/>
      </div>
 
   </div>
 </template>
-
-<script>
-export default {
-}
-</script>
