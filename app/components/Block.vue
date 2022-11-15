@@ -11,13 +11,15 @@
 
 export default {
   props: {
-    title: String,
-    description: String,
-    link: String
-  },
-  setup (props) {
-
+    title: {
+      type: String,
+      required: true
+    },
+    description: {
+      type: String,
+      required: true
+    }
   }
-}
+};
 
 </script>

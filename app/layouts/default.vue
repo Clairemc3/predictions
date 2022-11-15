@@ -1,8 +1,8 @@
 <template>
   <div class="w-full">
-    <Menu/>
+    <Menu />
      <div class="w-full">
-       <slot/>
+       <slot />
      </div>
 
   </div>

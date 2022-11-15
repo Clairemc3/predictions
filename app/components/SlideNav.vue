@@ -1,6 +1,6 @@
 <template>
   <div class="slidemenu">
-    <Slide :right="true" :closeOnNavigation="true" width=300>
+    <Slide :right="true" :close-on-navigation="true" width="300">
       <a id="menu" href="#">
         <span>My profile</span>
       </a>
@@ -11,7 +11,7 @@
         <span>Previous predictions</span>
       </a>
     </Slide>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -22,8 +22,6 @@
 .slidemenu .bm-burger-bars {
     background-color: white;
 }
-
-
 
 .slidemenu .bm-burger-button {
       position: fixed;

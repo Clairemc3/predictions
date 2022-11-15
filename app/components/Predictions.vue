@@ -1,22 +1,16 @@
 <template>
-  <div class="bg-purple-900">
-    <QuestionsGroup title="Premier League" />
-    <QuestionsGroup title="Premier League" />
-    <QuestionsGroup title="Premier League" />
+<div>
+  <div v-if="pending">Loading</div>
+  <div v-else class="bg-purple-900">
+  <Section v-for="(section,index) in sections" :section="section"/>
   </div>
+</div>
 </template>
 
-<script>
-export default {
-  data () {
-    return {
-      prediction: Object,
-      questionGroups: Array
-    }
-  },
 
-  mounted () {
-  
-  }
-}
+<script setup lang="ts">
+
+const { pending, data: prediction } =
+  await useLazyFetch<Object>('http://localhost:3000/predictions/1')
+const sections = prediction.value['sections'];
 </script>

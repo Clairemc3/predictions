@@ -2,48 +2,40 @@
   <div class="grid grid-cols-5 gap-4 mb-3 mt-3">
     <div class="col-span-4">
       <div class="bg-white text-left pl-2 pr-2 py-2">
-        <span class="font-archivo pr-2">{{ shortQuestionLabel }}</span>
+        <span class="font-archivo pr-2 uppercase">{{ shortLabel }}</span>
         <span class="text-base uppercase text-sm font-carme"> {{ value }} </span>
       </div>
     </div>
     <!-- ... -->
     <div class="col-span-1">
-      <Points :number="points" />
+      <Points v-if="hasPoints" :number="points" />
     </div>
   </div>
-  <!-- <div class="grid grid-cols-5 gap-30 px-4 py-2 align-center">
-    <div class="bg-white text-left px-2 py-1 col-span-4 align-center">
-      <span class="font-archivo">{{ shortQuestionLabel }}</span>
-      <span class="text-base uppercase text-sm font-carme"> {{ value }} </span>
-    </div>
-    <div class="col-span-1 text-center px-2 py-1 self-center">
-      <Points value="points" />
-    </div>
-  </div> -->
 </template>
 
-<script>
 
-export default {
-  props: {
-    shortQuestionLabel: {
+
+<script setup>
+const props = defineProps({
+  value: {
+      type: [String , null],
+      required: false,
+      default: null,
+    },
+    shortLabel: {
       type: String,
       required: true
     },
-    value: {
-      type: String,
+    points: {
+      type: [ Number , null],
       required: false,
       default: null
-    },
-    points: {
-      type: Number,
-      required: false,
-      default: 0
     }
-  },
-  setup (props) {
+})
 
-  }
-}
+  const hasPoints = computed(() => {
+      return typeof props.points == 'number'
+    });
+
 
 </script>
