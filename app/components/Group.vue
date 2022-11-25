@@ -2,24 +2,29 @@
   <div class="py-2 ml-6 mt-3">
     <div class="grid grid-cols-5 gap-4 text-white">
       <h3 class="col-span-4 mb-4">
-        {{ questionGroup.label ?? "Question label missing"  }}
+        {{ group.label ?? "Group label missing"  }}
       </h3>
       <h3 class="col-span-1">
         Pts
       </h3>
     </div>
-  <component v-for="question in questions" :is="QuestionComponent(question)" :question="question"/>
-  </div>
+    <div class="py-2 ml-1 mt-3">
+      <component
+        v-for="question in questions"
+        :is="QuestionComponent(question)"
+        :question="question"/>
+      </div>
+    </div>
 </template>
 
 
 <script setup>
-const props = defineProps({
-  questionGroup: Object
-})
+  const props = defineProps({
+    group: Object
+  })
 
 // Set the questions
-const questions = props.questionGroup.questions;
+const questions = props.group.questions;
 
 // Resolve the Question component depending on the question type
 const QuestionComponent = (question) => {

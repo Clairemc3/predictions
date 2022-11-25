@@ -3,8 +3,8 @@
     <div class="font-archivo bg-yellow-100 text-purple-900 uppercase text-lg py-2">
       {{ section.title }}
     </div>
-    <QuestionGroup v-for="questionGroup in questionGroups"
-        :question-group="questionGroup"/>
+    <Group v-for="group in groups"
+        :group="group"/>
   </div>
 </template>
 
@@ -13,5 +13,5 @@ const props = defineProps({
   section: Object
 })
 
-const questionGroups = props.section.questionGroups;
+const groups = props.section.groups;
 </script>

@@ -1,9 +1,13 @@
 <template>
   <div class="grid grid-cols-5 gap-4 mb-3 mt-3">
     <div class="col-span-4">
-      <div class="bg-white text-left pl-2 pr-2 py-2">
-        <span class="font-archivo pr-2 uppercase">{{ shortLabel }}</span>
-        <span class="text-base uppercase text-sm font-carme"> {{ value }} </span>
+      <div class="bg-white text-left pl-2 pr-2 py-2 h-12 flex items-center">
+        <div class="font-archivo uppercase w-1/4 text-sm one-word-per-line">
+          {{ shortLabel }}
+        </div>
+        <div class="font-carme uppercase w-3/2 ">
+          {{ value }}
+        </div>
       </div>
     </div>
     <!-- ... -->
@@ -39,3 +43,13 @@ const props = defineProps({
 
 
 </script>
+
+
+<style scss>
+
+.one-word-per-line {
+    word-spacing: 1568px;
+    line-height: 13px;
+}
+
+</style>

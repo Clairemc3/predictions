@@ -1,11 +1,9 @@
 <template>
-  <div class="py-2 ml-6 mt-3">
-  <Answer v-for="answer in answers"
-    :value="value(answer)"
-    :short-label="shortLabel(answer)"
-    :points="points(answer)"
-  />
-  </div>
+    <Answer v-for="answer in answers"
+      :value="value(answer)"
+      :short-label="shortLabel(answer)"
+      :points="points(answer)"
+    />
 </template>
 
 

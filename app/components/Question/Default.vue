@@ -1,7 +1,5 @@
 <template>
-  <div class="py-2 ml-6 mt-3">
-    <Answer :value="value" :short-label="shortLabel" :points="points"/>
-  </div>
+  <Answer :value="value" :short-label="shortLabel" :points="points"/>
 </template>
 
 

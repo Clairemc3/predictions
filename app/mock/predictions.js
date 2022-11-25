@@ -6,7 +6,7 @@ module.exports = [{
   sections: [
     {
       title: 'Premier League',
-      questionGroups: premierLeagueQuestions
+      groups: premierLeagueQuestions
     }
   ]
 }]
