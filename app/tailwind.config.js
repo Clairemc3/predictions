@@ -12,6 +12,16 @@ module.exports = {
         carme: ['Carme', 'sans-serif'],
         archivo: ["'Archivo Black'", 'sans-serif'],
       },
+      height: {
+        '40px': '40px',
+        '50px': '50px',
+        '60px': '60px'
+      },
+      width: {
+        '40px': '40px',
+        '50px': '50px',
+        '60px': '60px'
+      },
     },
   },
   plugins: [],

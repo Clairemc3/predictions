@@ -1,16 +1,24 @@
 <template>
 <div>
-  <div v-if="pending">Loading</div>
-  <div v-else class="bg-purple-900">
-  <Section v-for="(section,index) in sections" :section="section"/>
+  <div class="cmPrediction bg-purple-900">
+    <Section v-for="(section,index) in sections" :section="section"/>
   </div>
 </div>
 </template>
 
 
-<script setup lang="ts">
+<script setup>
 
-const { pending, data: prediction } =
-  await useLazyFetch<Object>('http://localhost:3000/predictions/1')
-const sections = prediction.value['sections'];
+const props = defineProps({
+  predictions: {
+      type: Object,
+      required: true,
+    },
+})
+
+const sections = computed(() => {
+    return props.predictions.sections
+  });
+
+
 </script>

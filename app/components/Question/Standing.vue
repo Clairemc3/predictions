@@ -3,6 +3,8 @@
       :value="value(answer)"
       :short-label="shortLabel(answer)"
       :points="points(answer)"
+      :has-icon="true"
+      :question-type="question.type"
     />
 </template>
 

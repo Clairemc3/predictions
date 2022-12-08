@@ -1,16 +1,16 @@
 <template>
   <div
     class="
-          flex flex-col
+          flex flex-row
           py-5
-          px-4
           mx-0
-          md:items-center md:justify-between md:flex-row md:px-6
-          lg:px-28
+          px-4
+          md:items-center md:justify-between
           bg-purple-900
           sticky top-0 z-50
         "
   >
+      <ProfileImage size="small"/>
     <div class="flex flex-row items-center justify-between lg:justify-start">
       <a
         href="./index.html"
@@ -25,8 +25,10 @@
       transform
       tracking-relaxed
       lg:pr-8
+      uppercase
+      font-archivo
     "
-      > Prediction league </a>
+      > Predictions league </a>
     </div>
     <nav>
       <SlideNav />

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="font-archivo bg-yellow-100 text-purple-900 uppercase text-lg py-2">
+    <div class="cpmSection font-archivo bg-yellow-100 text-purple-900 uppercase text-lg py-2">
       {{ section.title }}
     </div>
     <Group v-for="group in groups"

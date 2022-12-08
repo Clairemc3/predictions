@@ -1,5 +1,9 @@
 <template>
-  <Answer :value="value" :short-label="shortLabel" :points="points"/>
+  <Answer
+    :value="value"
+    :short-label="shortLabel"
+    :points="points"
+    :question-type="question.type"/>
 </template>
 
 
