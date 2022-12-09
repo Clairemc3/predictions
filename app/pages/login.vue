@@ -7,7 +7,7 @@
       <form>
         <input type="text" name="email" placeholder="email">
         <input type="password" name="password" placeholder="password">
-        <input type="submit" value="SIGN IN" class="text-white uppercase">
+        <input type="submit" value="sign in" class="text-white uppercase">
       </form>
     </div>
 

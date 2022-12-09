@@ -4,7 +4,9 @@
       {{ section.title }}
     </div>
     <Group v-for="group in groups"
-        :group="group"/>
+        :group="group"
+        :displayGroupLabel="(numberOfGroups > 1)"
+        :section-order="sectionOrder"/>
   </div>
 </template>
 
@@ -14,4 +16,7 @@ const props = defineProps({
 })
 
 const groups = props.section.groups;
+const sectionOrder = props.section.order;
+
+const numberOfGroups = groups.length;
 </script>

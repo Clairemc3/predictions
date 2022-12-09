@@ -3,6 +3,7 @@
     :value="value"
     :short-label="shortLabel"
     :points="points"
+    :icon="icon"
     :question-type="question.type"/>
 </template>
 
@@ -22,6 +23,7 @@ const shortLabel = props.question.shortLabel;
 const answer = props.question.answer ?? null;
 const value = answer ? answer.value : null;
 const points = answer ? answer.points : null;
+const icon = answer ? answer.icon : null;
 
 
 </script>
