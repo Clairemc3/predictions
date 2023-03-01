@@ -6,7 +6,13 @@ export default defineNuxtConfig({
         name: "MyPredictions",
         path: "/my-predictions",
         file: "~/pages/mypredictions.vue"
-      });
+      },
+      {
+      name: "ComparePredictions",
+      path: "/compare-predictions",
+      file: "~/pages/compare-predictions.vue"
+      }
+      );
     }
   },
 
