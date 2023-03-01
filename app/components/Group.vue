@@ -19,6 +19,13 @@
 
 
 <script setup>
+  import { useMountedGroups } from '~~/store/mountedGroups';
+  // Load the predictions store
+  const mountedGroups = useMountedGroups();
+
+  let numMountedGroup = mountedGroups.getNumber;
+
+  // Define the props
   const props = defineProps({
     group: {
       type: Object,
@@ -33,25 +40,34 @@
     }
   })
 
-// Set the questions
-const questions = props.group.questions;
 
-// Whether to show the Pts heading in this group
-// If this is the first section and first group on the page then we show the points heading
-const showPointsHeading = computed(() => {
-      return props.sectionOrder && props.sectionOrder === 1
-        && props.group.order === 1;
-    });
+  // Set the questions
+  const questions = props.group.questions;
 
-// Resolve the Question component depending on the question type
-const QuestionComponent = (question) => {
-  switch(question.type) {
-    case 'Standing':
-      return resolveComponent('QuestionStanding')
-    case 'MultiSelect':
-      return resolveComponent('QuestionMultiSelect')
-    default:
-      return resolveComponent('QuestionSingleSelect')
+  // Whether to show the Pts heading in this group
+  // If this is the first mounted group component, then show the Pts heading
+  const showPointsHeading = computed(() => {
+      return numMountedGroup == 0;
+  });
+
+  // Resolve the Question component depending on the question type
+  const QuestionComponent = (question) => {
+    switch(question.type) {
+      case 'Standing':
+        return resolveComponent('QuestionStanding')
+      case 'MultiSelect':
+        return resolveComponent('QuestionMultiSelect')
+      default:
+        return resolveComponent('QuestionSingleSelect')
+    }
   }
-}
+
+  onMounted(() => {
+    numMountedGroup = mountedGroups.getNumber;
+  })
+
+
+  onBeforeMount(() => {
+    mountedGroups.recordMountedGroup();
+  })
 </script>

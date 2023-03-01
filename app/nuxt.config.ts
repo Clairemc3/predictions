@@ -11,7 +11,8 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    "@nuxtjs/tailwindcss"
+    "@nuxtjs/tailwindcss",
+    "@pinia/nuxt"
   ],
 
   // Global CSS: https://go.nuxtjs.dev/config-css

@@ -8,14 +8,14 @@
     <div class="text-center">
       <h1>My predictions</h1>
       <h2>2022</h2>
-      <div v-if="pending">
+      <div v-if="predictionsStore.pending">
         <p>Loading your predictions</p>
       </div>
-      <div v-else-if="error">
+      <div v-else-if="predictionsStore.error">
         <AlertError message="Sorry, your predictions cannot be loaded"/>
       </div>
       <div v-else>
-        <Predictions :predictions="predictions" />
+        <Predictions :predictions="predictionsStore.predictions" />
       </div>
       <!-- Total points -->
       <div class="py-5">
@@ -29,12 +29,14 @@
 </template>
 
 <script setup>
-const { pending, data: predictions, error} = useLazyAsyncData('predictions', () => $fetch('http://localhost:3000/predictions/1'))
-watch(predictions, (newPredictions) => {
-  // Because predictions starts out null, you won't have access
-  // to its contents immediately, but you can watch it.
-})
 
+  import { usePredictionsStore } from '~~/store/predictionsStore';
+
+  // Load the predictions store
+  const predictionsStore = usePredictionsStore()
+
+  // Fetch the predictions from the store
+  predictionsStore.getPredictions()
 
   const totalPoints = 0;
 </script>
