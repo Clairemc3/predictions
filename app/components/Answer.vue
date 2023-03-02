@@ -59,6 +59,10 @@
       icon: {
         type: [String, null],
         default: null
+      },
+      status: {
+        type: String,
+        default: 'draft'
       }
   })
 

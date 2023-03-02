@@ -3,6 +3,7 @@
       :value="value(answer)"
       :short-label="shortLabel"
       :points="points(answer)"
+      :status="status(answer)"
       :icon="icon(answer)"
       :question-type="question.type"
     />
@@ -23,16 +24,29 @@ const answers = props.question.answers ?? [];
 
 const shortLabel = props.question.shortLabel;
 
-const points = (answer) => {
-    return answer ? answer.points : null;
-}
-
 const value = (answer) => {
   return answer ? answer.value : null;
 }
 
 const icon = (answer) => {
   return answer ? answer.icon : null;
+}
+
+const points = (answer) => {
+    let results = getResults(answer);
+    if (results && results.hasOwnProperty('points') && typeof results.points == 'number') {
+      return results.points;
+    }
+    return null;
+}
+
+const status = (answer) => {
+   let results = getResults(answer);
+    return results ? results.status : 'draft';
+}
+
+function getResults(answer) {
+  return answer ? answer.results : null;
 }
 
 
