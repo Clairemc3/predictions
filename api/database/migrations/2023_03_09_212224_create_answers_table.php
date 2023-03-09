@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('user_season_id')
-            ->constrained()
+            ->constrained('user_season')
             ->onDelete('cascade');
 
             $table->unsignedInteger('question_id');

@@ -44,14 +44,14 @@ class User extends Authenticatable
     ];
 
 
-
     /**
      * The users that belong to the role.
      */
     public function seasons(): BelongsToMany
     {
-        return $this->belongsToMany(Season::class)
-        ->using(UserSeason::class);
+        return $this->belongsToMany(Season::class, 'user_season')
+        ->using(UserSeason::class)
+        ->withTimestamps();
     }
 
 }

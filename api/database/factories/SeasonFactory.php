@@ -2,8 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Answer;
 use App\Models\Season;
 use App\Models\Section;
+use App\Models\UserSeason;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -26,15 +28,21 @@ class SeasonFactory extends Factory
     }
 
 
-    // /**
-    //  * Create with sections/groups/questions
-    //  */
-    // public function withQuestions(): Factory
-    // {
-    //     return $this->afterCreating(function (Season $season) {
-    //         $season->hasSections();
-    //     });
-    // }
+    /**
+     * Populate a user season with predictions
+     */
+    public function generatePredictions(UserSeason $userSeason)
+    {
+        // Foreach question in the season generate answers
+        foreach ($userSeason->season->questions as $question) {
+            Answer::factory()->count($question->number_answers)
+                ->create([
+                    'user_season_id' => $userSeason->id,
+                    'question_id' => $question->id
+                    ]);
+                }
+
+    }
 
 
 }

@@ -22,7 +22,8 @@ class QuestionFactory extends Factory
         return [
             'type' =>  $type,
             'label' => $this->faker->sentence(3),
-            'short_label' => $this->faker->word(3)
+            'short_label' => $this->faker->word(3),
+            'number_answers' => $this->faker->numberBetween(1, 3)
         ];
     }
 }
