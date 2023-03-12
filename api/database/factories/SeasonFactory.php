@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Answer;
 use App\Models\Season;
 use App\Models\Section;
+use App\Models\User;
 use App\Models\UserSeason;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -27,20 +28,56 @@ class SeasonFactory extends Factory
         ];
     }
 
+    /**
+     * The season is open
+     */
+    public function open(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'status' => 'open',
+            ];
+        });
+    }
+
+
+    /**
+     * Create a user with a 'complete' UserSeason
+     */
+    public function withCompletePredictions(User $user): static
+    {
+        return $this->afterMaking(function (Season $season) {
+            // ...
+        })->afterCreating(function (Season $season) use ($user) {
+            $season->users()->attach($user, ['complete' => true]);
+        });
+    }
+
 
     /**
      * Populate a user season with predictions
      */
-    public function generatePredictions(UserSeason $userSeason)
+    public function createUsersWithPredictionsForUser(int $userCount, Season $season)
     {
+
+        // Create users for the predictions
+        User::factory()
+            ->count($userCount)
+            ->hasAttached($season)
+            ->create();
+
         // Foreach question in the season generate answers
-        foreach ($userSeason->season->questions as $question) {
-            Answer::factory()->count($question->number_answers)
+        foreach ($season->users as $user) {
+            foreach ($season->questions as $question) {
+                Answer::factory()
+                ->count($question->number_answers)
                 ->create([
-                    'user_season_id' => $userSeason->id,
-                    'question_id' => $question->id
-                    ]);
-                }
+                        'user_season_id' => $user->predictions->id,
+                        'question_id' => $question->id
+                ]);
+            }
+
+        }
 
     }
 

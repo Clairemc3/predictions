@@ -18,6 +18,11 @@ composer_version: "2"
 web_environment: []
 nodejs_version: "16"
 
+
+hooks:
+  post-start:
+    - exec: mysql -uroot -proot -hdb -e "CREATE DATABASE IF NOT EXISTS test; GRANT ALL ON test.* TO 'db'@'%';"
+
 # Key features of ddev's config.yaml:
 
 # name: <projectname> # Name of the project, automatically provides

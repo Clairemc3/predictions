@@ -48,4 +48,14 @@ class Season extends Model
 
         ->withTimestamps();
     }
+
+
+    /**
+     * Return the active season
+     *
+     * @return null|Season
+     */
+    public static function active() : ?Season {
+        return self::where('status', 'open')->first();
+    }
 }

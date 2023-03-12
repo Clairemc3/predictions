@@ -51,6 +51,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Season::class, 'user_season')
         ->using(UserSeason::class)
+        ->withPivot('id')
         ->withTimestamps();
     }
 
