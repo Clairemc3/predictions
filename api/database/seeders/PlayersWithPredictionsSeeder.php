@@ -10,19 +10,22 @@ use App\Models\Section;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+/**
+ * Generates a season with users and predictions
+ */
 class PlayersWithPredictionsSeeder extends Seeder
 {
 
     use WithoutModelEvents;
 
     /**
-     * Generates a set of players with answers for a season
+     * Generates a season with users and predictions
      */
     public function run(): void
     {
 
-       // Create a season with questions
-       $season = \App\Models\Season::factory()
+       // Create a Season with questions
+       $season = Season::factory()
             ->has(
                 Section::factory(4)
                     ->has(Group::factory(2)
@@ -32,10 +35,9 @@ class PlayersWithPredictionsSeeder extends Seeder
                 )->create();
 
 
+        // Create users with predictions for the Season
         Season::factory()
-            ->createUsersWithPredictionsForUser(10, $season);
-
-
+            ->createUsersWithPredictions(10, $season);
 
 
     }

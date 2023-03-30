@@ -57,7 +57,7 @@ class SeasonFactory extends Factory
     /**
      * Populate a user season with predictions
      */
-    public function createUsersWithPredictionsForUser(int $userCount, Season $season)
+    public function createUsersWithPredictions(int $userCount, Season $season)
     {
 
         // Create users for the predictions
