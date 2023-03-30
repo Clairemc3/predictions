@@ -19,7 +19,7 @@ class CurrentPredictionsTest extends TestCase
      */
     public function it_returns_current_predictions_for_the_authed_user(): void
     {
-        // Given have a player
+        // Given I have a player
         $user = User::factory()->create();
 
         // Given the player has complete predictions for an open season
@@ -28,13 +28,11 @@ class CurrentPredictionsTest extends TestCase
         // Given the player is authed
         $this->actingAs($user);
 
-
         // When i access the 'current-predictions' route
         $response = $this->get('/api/current-predictions');
 
+        // Then the response status should be 200
         $response->assertStatus(200);
-
-        // Then the users predictions for the open season should be returned
     }
 
     /**
