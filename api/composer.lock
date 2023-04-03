@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50068feab8e312aaf84067d92ace817c",
+    "content-hash": "28182854ef048a019f0e61641fc4c9fc",
     "packages": [
         {
             "name": "brick/math",
@@ -61,6 +61,50 @@
                 }
             ],
             "time": "2022-08-10T22:54:19+00:00"
+        },
+        {
+            "name": "clairedv/laravel-array-helpers",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Clairemc3/laravel-array-helpers-extended.git",
+                "reference": "d4f7ab2595b4231e623dd37493401290239ae17f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Clairemc3/laravel-array-helpers-extended/zipball/d4f7ab2595b4231e623dd37493401290239ae17f",
+                "reference": "d4f7ab2595b4231e623dd37493401290239ae17f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^7|^8|^9|^10",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ClaireDv\\LaravelArrayHelpers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Claire Mcevoy",
+                    "email": "clairemc3@gmail.com"
+                }
+            ],
+            "description": "Some static helpers for querying and transforming php arrays",
+            "support": {
+                "issues": "https://github.com/Clairemc3/laravel-array-helpers-extended/issues",
+                "source": "https://github.com/Clairemc3/laravel-array-helpers-extended/tree/1.0"
+            },
+            "time": "2023-04-03T21:22:59+00:00"
         },
         {
             "name": "dflydev/dot-access-data",

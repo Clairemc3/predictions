@@ -44,7 +44,7 @@ class Season extends Model
         return $this->belongsToMany(User::class, 'user_season')
         ->as('predictions')
         ->withPivot('id')
-        ->using(UserSeason::class)
+        ->using(Predictions::class)
 
         ->withTimestamps();
     }

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\UserSeasonController;
+use App\Http\Controllers\PredictionsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Route::middleware('auth:sanctum')->group(function () {
-//     Route::get('/current-predictions', [UserSeasonController::class, 'show']);
+//     Route::get('/current-predictions', [PredictionsController::class, 'show']);
 // });
 
-Route::get('/current-predictions', [UserSeasonController::class, 'show']);
+Route::get('/current-predictions', [PredictionsController::class, 'show']);
