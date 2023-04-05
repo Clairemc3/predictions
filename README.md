@@ -58,7 +58,14 @@ To run the spa app locally:
  - cd into the /app folder
  - run `npm install` to install node packages
  - run `npm run  initial-setup` to setup the project
- - run `npm run dev`
+ - run `npm run dev` to create a server to run the application on
+
+### Connecting to the Api
+The app can be run independanly of the api by using mock data generated with json-server.
+
+To run the json-server, run `npm run mock`.
+This will create a mock server at  http://localhost:3000/ with a /predictions endpoint
+
 
 ## Running  tests
 
