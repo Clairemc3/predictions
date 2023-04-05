@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PredictionsResource extends JsonResource
+class GroupResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,14 +14,10 @@ class PredictionsResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        // Load relations
-        $this->resource->load('season.sections.groups.questions');
-
-        $season = $this->season;
-
         return [
-            'name' => $this->season->name,
-            'sections' => SectionResource::collection($season->sections)
+            'label' => $this->name,
+            'order' => $this->order,
+            'questions' => QuestionResource::collection($this->questions)
         ];
     }
 }
