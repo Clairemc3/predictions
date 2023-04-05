@@ -3,10 +3,7 @@
 namespace Database\Seeders;
 
 
-use App\Models\Group;
-use App\Models\Question;
 use App\Models\Season;
-use App\Models\Section;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -19,26 +16,43 @@ class PlayersWithPredictionsSeeder extends Seeder
     use WithoutModelEvents;
 
     /**
-     * Generates a season with users and predictions
+     * Generates an open season with players
      */
     public function run(): void
     {
 
-       // Create a Season with questions
-       $season = Season::factory()
-            ->has(
-                Section::factory(4)
-                    ->has(Group::factory(2)
-                        ->has(Question::factory(3)
-                        )
-                    )
-                )->create();
+        // Create an open season with questions
+        $season = Season::factory()->createOpenSeasonWithQuestions();
 
 
-        // Create users with predictions for the Season
+        /*
+        |--------------------------------------------------------------------------
+        | Create users with set email addresses for the season
+        |--------------------------------------------------------------------------
+        | These can be logged in as (all passwords are 'password')
+        |
+        */
+
+        $userEmails = [
+                'player1@example.org',
+                'player2@example.org',
+                'player3@example.org',
+            ];
+
+        foreach ($userEmails as $email) {
+            Season::factory()
+            ->createUserWithPredictions($season, $email);
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Create more users for the season with randomly generated credentials
+        |--------------------------------------------------------------------------
+        |
+        */
+
         Season::factory()
-            ->createUsersWithPredictions(10, $season);
-
+        ->createUsersWithPredictions($season, 10);
 
     }
 }

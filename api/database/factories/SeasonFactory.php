@@ -3,10 +3,11 @@
 namespace Database\Factories;
 
 use App\Models\Answer;
+use App\Models\Group;
+use App\Models\Question;
 use App\Models\Season;
 use App\Models\Section;
 use App\Models\User;
-use App\Models\Predictions;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -57,9 +58,8 @@ class SeasonFactory extends Factory
     /**
      * Populate a user season with predictions
      */
-    public function createUsersWithPredictions(int $userCount, Season $season)
+    public function createUsersWithPredictions(Season $season, int $userCount)
     {
-
         // Create users for the predictions
         User::factory()
             ->count($userCount)
@@ -78,6 +78,50 @@ class SeasonFactory extends Factory
             }
 
         }
+
+    }
+
+
+    /**
+     * Create a user and popualate predictions
+     */
+    public function createUserWithPredictions(Season $season, string $email)
+    {
+        // Create users for the predictions
+        $user = User::factory()->withCredentials($email, 'password')
+            ->hasAttached($season)
+            ->create();
+
+        // Foreach question in the season generate answers
+        foreach ($season->questions as $question) {
+            Answer::factory()
+            ->count($question->number_answers)
+            ->create([
+                    'user_season_id' => $user->seasons()->first()->id,
+                    'question_id' => $question->id
+            ]);
+        }
+
+    }
+
+
+
+    /**
+     * Populate a user season sections, groups and questions
+     */
+    public function createOpenSeasonWithQuestions() : Season
+    {
+         // Create a Season with questions
+        $season = Season::factory(['status' => 'open'])
+        ->has(
+            Section::factory(4)
+                ->has(Group::factory(2)
+                    ->has(Question::factory(3)
+                    )
+                )
+            )->create();
+
+        return $season;
 
     }
 
