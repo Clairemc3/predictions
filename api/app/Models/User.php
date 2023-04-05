@@ -50,7 +50,7 @@ class User extends Authenticatable
     public function seasons(): BelongsToMany
     {
         return $this->belongsToMany(Season::class, 'user_season')
-        ->using(UserSeason::class)
+        ->using(Predictions::class)
         ->withPivot('id')
         ->withTimestamps();
     }

@@ -6,7 +6,7 @@ use App\Models\Answer;
 use App\Models\Season;
 use App\Models\Section;
 use App\Models\User;
-use App\Models\UserSeason;
+use App\Models\Predictions;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -42,7 +42,7 @@ class SeasonFactory extends Factory
 
 
     /**
-     * Create a user with a 'complete' UserSeason
+     * Create a user with a 'complete' Predictions
      */
     public function withCompletePredictions(User $user): static
     {
