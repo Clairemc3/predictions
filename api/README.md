@@ -6,8 +6,8 @@ Please note, that this method has been chosen in preparation for the migration o
 
 The authentication is a token based authenication:
  - A request is made to /api/login with user credentials
- - A token is returned
- - All subsequent requests should pass the token in the Authorization header as a Bearer token.
+ - A payload including an 'access_token' is returned
+ - All subsequent requests should pass the access_token in the Authorization header as a Bearer token.
 
 
 To experiment with the api, use the Postman collection here https://www.postman.com/predictions-api.
