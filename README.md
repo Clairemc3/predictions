@@ -30,52 +30,38 @@ To get the project to run locally using DDEV you must install DDEV. To do this, 
   - Install Colima (for creating container instances): `brew install colima`
   - Finally, install DDEV: `brew install ddev/ddev/ddev`
 
-#### To setup the project locally
+#### Running the Laravel Api  locally
 To setup the project locally
  - Boot up the instance
    - Run `colima start` to get colima running if it's not already started
    -  cd into the /api folderp
    -  Run `ddev start`. This should create an instance for the project
    -  Once the container is ready, ssh into it using `ddev ssh`
- - Install your packages and set up the environment
+- Install your packages and set up the environment
    - In the container, run `composer install` and `npm install` to install composer and node packages
-   - To set up the .env, run `composer run-script initial-setup`
+   - To set up the .env, and seed the database with test data, run `composer run-script initial-setup`
 
 The Api is now setup and ready to go!
-The api data can be accessed independantly via Postman - see here for the Collection
+The Api data can be accessed independantly via Postman (see here for the Collection),
 or using the interface.
 
 To setup the interface, see [link to setup the app]
 
-
-
-
- - Running seeders locally to populate the database, what this does
- - Running tests
- - Link to api docs
-- Connecting/viewing the database locally with DDEV and sequel ace
-
 ##  The Spa App
 
-The interface for the application is built using [Nuxt.js](https://nuxtjs.org/)
+The interface for the application is built using [Nuxt.js](https://nuxtjs.org/).
+Tp run the app locally, you must have [Node](https://nodejs.org/en/download) and (npm)https://docs.npmjs.com/downloading-and-installing-node-js-and-npm installed on your machine
 
-###  Running the app locally
 
+###  Running the Spa App locally
+To run the spa app locally:
+ - cd into the /app folder
+ - run `npm install` to install node packages
+ - run `npm run  initial-setup` to setup the project
+ - run `npm run dev`
 
- ## Running  tests
+## Running  tests
 
-# Usage docs ( these will live in a seperate application)
- ## Creating a season
+The Api contains a test suite. The feature require test database, therefore the ddev container must be booted up.
 
- ## Creating a user/player
-
- ## Inviting a user to a season
-
- ## User subscribing to a season
-
- ## Question types
-  - Standings
-  - Competititions
-  - Free text
-
-## Scoring
+To run the tests, naviagate to the api folder, ssh in to ddev (`ddev ssh`) and run `php artisan test`
